@@ -1,0 +1,24 @@
+#include<stdio.h>
+
+char c[10];
+int main() {
+	int a, b,sum;
+	scanf("%d %d", &a, &b);
+	sum = a + b;
+	if (sum < 0) {     //负数的话将其变成正数
+		printf("-");
+		sum = 0 - sum;
+	}
+	int  n=0,len;  // 定义一个临时的值m,定义一个n来计数
+	do {
+		c[n] = sum % 10;
+		sum = sum / 10;
+		n++;
+	}while (sum > 0);
+	for (int i = n - 1; i >= 0; --i) {
+		printf("%d", c[i]);
+		if (i % 3 == 0 && i > 0) printf(",");
+	}
+
+	return 0;
+}
